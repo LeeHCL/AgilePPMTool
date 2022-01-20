@@ -15,11 +15,11 @@ public class ProjectService {
 
 	public Project saveOrUpdateProject(Project project) {
 		try {
-			project.setProjectIndetifier(project.getProjectIndetifier().toUpperCase());
+			project.setProjectIdentifier(project.getProjectIdentifier().toUpperCase());
 			return projectRepository.save(project);
 		} catch (Exception e) {
 			throw new ProjectIdException(
-					"Project ID " + project.getProjectIndetifier().toUpperCase() + " already exists");
+					"Project ID " + project.getProjectIdentifier().toUpperCase() + " already exists");
 		}
 	}
 
@@ -28,11 +28,15 @@ public class ProjectService {
 		Project project = projectRepository.findByProjectIdentifier(projectId.toUpperCase());
 
 		if (project == null) {
-			throw new ProjectIdException("Project does not exist");
+			throw new ProjectIdException("Project ID " + projectId + " does not exist");
 
 		}
 
 		return project;
+	}
+
+	public Iterable<Project> findAllProjects() {
+		return projectRepository.findAll();
 	}
 
 }

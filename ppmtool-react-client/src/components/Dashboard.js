@@ -1,16 +1,24 @@
-import React, { Component } from 'react';
-import ProjectItem from './Project/ProjectItem';
+import React, { Component } from "react";
+import CreateProjectButton from "./Project/CreateProjectButton";
+//import ProjectItem from "./Project/ProjectItem";
 
 class Dashboard extends Component {
   render() {
-    return( 
-        <div>
-        <h1 className="alert alert-warning"> Welcome to the Dashboard</h1>
-        <ProjectItem />
-        <ProjectItem />
-        <ProjectItem />
+    return (
+      <div class="projects">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <h1 class="display-4 text-center">Projects</h1>
+              <br />
+              <CreateProjectButton />
+              <br />
+              <hr />
+            </div>
+          </div>
         </div>
-        );    
+      </div>
+    );
   }
 }
 

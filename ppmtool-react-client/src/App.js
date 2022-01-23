@@ -1,15 +1,20 @@
-import './App.css';
-import { Component } from 'react';
-import Dashboard from './components/Dashboard';
-import Header from './components/Layout/Header';
+import "./App.css";
+import React, { Component } from "react";
+import Dashboard from "./components/Dashboard";
+import Header from "./components/Layout/Header";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import AddProject from "./components/Project/AddProject";
 
-class App extends Component{
+class App extends Component {
   render() {
-    return(
-      <div className="App">
-      <Header />
-      <Dashboard />
-      </div>
+    return (
+      <Router>
+        <div className="App">
+          <Header />
+          <Route exact path="/dashboard" element={Dashboard} />
+          <Route exact path="/addProject" element={AddProject} />
+        </div>
+      </Router>
     );
   }
 }

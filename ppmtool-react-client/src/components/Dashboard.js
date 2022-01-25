@@ -12,7 +12,8 @@ class Dashboard extends Component {
               <h1 className="display-4 text-center">Projects</h1>
               <br />
               <CreateProjectButton />
-
+                    <h1>Burlap sack full of kids</h1>
+                    <h2>Not my kids</h2>
               <br />
               <hr />
               <ProjectItem />

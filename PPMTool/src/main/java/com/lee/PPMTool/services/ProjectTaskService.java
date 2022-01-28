@@ -1,5 +1,7 @@
 package com.lee.PPMTool.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.lee.PPMTool.domain.Backlog;
@@ -37,6 +39,10 @@ public class ProjectTaskService {
 		}
 		
 		return projectTaskRepository.save(projectTask);
+	}
+
+	public Iterable<ProjectTask> findBacklogById(String id) {
+		return projectTaskRepository.findByProjectIdentifierOrderByPriority(id);
 	}
 
 }

@@ -18,7 +18,7 @@ class ProjectTask extends Component {
 
               <button className="btn btn-danger ml-4">Delete</button>
             </div>
-          </div>
+        </div>
     );
   }
 }

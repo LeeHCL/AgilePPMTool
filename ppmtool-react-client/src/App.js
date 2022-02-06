@@ -11,6 +11,7 @@ import UpdateProject from "./components/Project/UpdateProject";
 import ProjectBoard from "./ProjectBoard/ProjectBoard";
 import AddProjectTask from "./ProjectBoard/ProjectTasks/AddProjectTask";
 import UpdateProjectTask from "./ProjectBoard/ProjectTasks/UpdateProjectTask";
+import Landing from "./components/Layout/Landing";
 
 class App extends Component {
   render() {
@@ -19,6 +20,15 @@ class App extends Component {
         <Router>
           <div className="App">
             <Header />
+            {
+              // Public Routes
+            }
+
+            <Route exact path="/" component ={Landing}/>
+
+            {
+              //Private Routes
+            }
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/addProject" component={AddProject} />
             <Route exact path="/updateProject/:id" component={UpdateProject} />

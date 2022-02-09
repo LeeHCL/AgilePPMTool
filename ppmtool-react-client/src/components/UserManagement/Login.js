@@ -16,6 +16,12 @@ class Login extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.security.validToken) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.security.validToken) {
       this.props.history.push("/dashboard");
@@ -53,35 +59,31 @@ class Login extends Component {
                   <input
                     type="text"
                     className={classnames("form-control form-control-lg", {
-                      "is-invalid":errors.username
+                      "is-invalid": errors.username,
                     })}
                     placeholder="Email Address"
                     name="username"
                     value={this.state.username}
                     onChange={this.onChange}
                   />
-                  {
-                    errors.username && (
-                      <div className = "invalid-feedback">{errors.username}</div>
-                    )
-                  }
+                  {errors.username && (
+                    <div className="invalid-feedback">{errors.username}</div>
+                  )}
                 </div>
                 <div className="form-group">
                   <input
                     type="password"
                     className={classnames("form-control form-control-lg", {
-                      "is-invalid":errors.password
+                      "is-invalid": errors.password,
                     })}
                     placeholder="Password"
                     name="password"
                     value={this.state.password}
                     onChange={this.onChange}
                   />
-                  {
-                    errors.password && (
-                      <div className = "invalid-feedback">{errors.password}</div>
-                    )
-                  }
+                  {errors.password && (
+                    <div className="invalid-feedback">{errors.password}</div>
+                  )}
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
